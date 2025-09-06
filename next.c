@@ -25,7 +25,7 @@ int main(){
         }
     }while(guess!=ans);
     printf("Do you want to play again? (1 for Yes / 0 for No): ");
-    scanf("%a",&a);
+    scanf("%d",&a);
     if(a==1){
         goto start;
     }
