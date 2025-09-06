@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include<time.h>
 int main(){
+    start:
     srand(time(NULL));
     int a,guess=0,tries=0;
     int min=10,max=100;
@@ -23,7 +24,14 @@ int main(){
             printf("\nCongratulations! You guessed the number %d in %d tries.\n",ans,tries);
         }
     }while(guess!=ans);
+    printf("Do you want to play again? (1 for Yes / 0 for No): ");
     scanf("%a",&a);
+    if(a==1){
+        goto start;
+    }
+    else{
+        printf("Thank you for playing!\n");
+    }
     return 0;
 }
 
