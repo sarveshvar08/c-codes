@@ -3,7 +3,7 @@
 #include<time.h>
 int main(){
     srand(time(NULL));
-    int guess=0,tries=0;
+    int a,guess=0,tries=0;
     int min=10,max=100;
     int ans=(rand()%(max-min+1))+min;
     printf("Number Guessing Game\n");
@@ -23,6 +23,7 @@ int main(){
             printf("\nCongratulations! You guessed the number %d in %d tries.\n",ans,tries);
         }
     }while(guess!=ans);
+    scanf("%a",&a);
     return 0;
 }
 
