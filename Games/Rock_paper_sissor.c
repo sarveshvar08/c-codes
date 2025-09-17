@@ -6,7 +6,7 @@ int main(){
     while(1){    
         printf("Rock, Paper, Scissors Game\n");
         printf("1. Rock\n2. Paper\n3. Scissors\n");
-        printf("Enter your choice: ");
+        printf("Enter your choice[1,2,3]: ");
         scanf("%d",&a);
         printf("\n");
         if(a!=1 && a!=2 && a!=3){
