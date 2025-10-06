@@ -104,7 +104,8 @@ int computerMove() {
 
 // -------- Main Function --------
 int main() {
-    int choice;
+    int choice,x;
+    start:
 
     initializeBoard();
 
@@ -124,12 +125,12 @@ int main() {
 
         if (checkWin()) {
             printBoard();
-            printf("🎉 You win!\n");
+            printf("You win!\n");
             break;
         }
         if (checkDraw()) {
             printBoard();
-            printf("😐 It's a draw!\n");
+            printf("It's a draw!\n");
             break;
         }
 
@@ -138,15 +139,22 @@ int main() {
 
         if (checkWin()) {
             printBoard();
-            printf("💻 Computer wins!\n");
+            printf("Computer wins!\n");
             break;
         }
         if (checkDraw()) {
             printBoard();
-            printf("😐 It's a draw!\n");
+            printf("It's a draw!\n");
             break;
         }
     }
-
-    return 0;
+    // Condition to play again.
+    printf("Enter your choice[1 for Yes]:");
+    scanf("%d",&x);
+    if(x==1){
+        goto start;    //goto : Repeat the main()
+    }
+    else{
+        return 0;
+    }
 }
