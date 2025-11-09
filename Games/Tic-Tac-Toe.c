@@ -1,3 +1,4 @@
+// Tic-Tac-Toe
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -31,7 +32,9 @@ void printBoard() {
     printf("\nTic Tac Toe (You = X | Computer = O)\n\n");
     for (int i = 0; i < 3; i++) {
         printf(" %c | %c | %c ", board[i][0], board[i][1], board[i][2]);
-        if (i != 2) printf("\n---|---|---\n");
+        if (i != 2){
+            printf("\n---|---|---\n");
+        }
     }
     printf("\n\n");
 }
@@ -39,11 +42,15 @@ void printBoard() {
 // Check win condition
 int checkWin() {
     for (int i = 0; i < 3; i++) {
-        if (board[i][0] == board[i][1] && board[i][1] == board[i][2]) return 1;
-        if (board[0][i] == board[1][i] && board[1][i] == board[2][i]) return 1;
+        if (board[i][0] == board[i][1] && board[i][1] == board[i][2]) 
+            return 1;
+        if (board[0][i] == board[1][i] && board[1][i] == board[2][i]) 
+            return 1;
     }
-    if (board[0][0] == board[1][1] && board[1][1] == board[2][2]) return 1;
-    if (board[0][2] == board[1][1] && board[1][1] == board[2][0]) return 1;
+    if (board[0][0] == board[1][1] && board[1][1] == board[2][2])
+        return 1;
+    if (board[0][2] == board[1][1] && board[1][1] == board[2][0]) 
+        return 1;
     return 0;
 }
 
@@ -78,8 +85,12 @@ int computerMove() {
     for (int i = 1; i <= 9; i++) {
         if (isValidMove(i)) {
             makeMove(i, 'O');
-            if (checkWin()) return i; // winning move
-            else board[(i - 1) / 3][(i - 1) % 3] = i + '0'; // undo
+            if (checkWin()){
+                return i; // winning move
+            }
+            else{
+                board[(i - 1) / 3][(i - 1) % 3] = i + '0'; // undo
+            }
         }
     }
     // Try to block player
@@ -89,7 +100,10 @@ int computerMove() {
             if (checkWin()) {
                 board[(i - 1) / 3][(i - 1) % 3] = 'O'; // block here
                 return i;
-            } else board[(i - 1) / 3][(i - 1) % 3] = i + '0'; // undo
+            } 
+            else{
+                 board[(i - 1) / 3][(i - 1) % 3] = i + '0'; // undo
+            }
         }
     }
     // Pick first available spot
@@ -122,12 +136,13 @@ int main() {
             continue;
         }
         makeMove(choice, 'X');
-
+        // Check WIN
         if (checkWin()) {
             printBoard();
             printf("You win!\n");
             break;
         }
+        // Check Draw
         if (checkDraw()) {
             printBoard();
             printf("It's a draw!\n");
