@@ -305,7 +305,7 @@ int getPattern(char ch, int n, int arr[n][2*n]){
 
 // MAIN PROGRAM
 int main(){
-    char again;
+    int a;
     do {
         char text[100], dir;
         int size;
@@ -354,11 +354,11 @@ int main(){
             }
         }
 
-        printf("\nDo you want to print another pattern? (Y/N): ");
-        scanf(" %c", &again);
+        printf("\nDo you want to print another pattern? (1 for YES/0 for NO): ");
+        scanf(" %d", &a);
         getchar(); 
 
-    } while(toupper(again) == 'Y');
+    } while(a == 1);
     printf("\nTHANK YOU!!\n");
     return 0;
 }
