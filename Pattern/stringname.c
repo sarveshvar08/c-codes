@@ -1,415 +1,365 @@
+// MY PATTERN PRINTING PROGRAM
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-
-// ---------------- LETTER PATTERNS ----------------
-
-void printA(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(j==0 || j==n-1 || i==n/2 || i==0 && j>0 && j<n-1)
-                printf("* ");
-            else
-                printf("  ");
-        }
-        printf("\n");
-    }
+// Alphabets functions
+void patternA(int n, int arr[n][2*n]) {
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(j==0||j==n-1||i==n/2||(i==0&&j>0&&j<n-1));
 }
-
-void printB(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(j==0 || (i==0||i==n/2||i==n-1)&&j<n-1 || j==n-1&&(i!=0&&i!=n/2&&i!=n-1))
-                printf("* ");
-            else printf("  ");
-        }
-        printf("\n");
-    }
+void patternB(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(j==0||(i==0||i==n/2||i==n-1)&&j<n-1||j==n-1&&(i!=0&&i!=n/2&&i!=n-1));
 }
-
-void printC(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(j==0 || i==0 && j>0 || i==n-1 && j>0)
-                printf("* ");
-            else printf("  ");
-        }
-        printf("\n");
-    }
+void patternC(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(j==0||(i==0&&j>0)||(i==n-1&&j>0));
 }
-
-void printD(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(j==0 || (i==0||i==n-1)&&j<n-1 || j==n-1&&i>0&&i<n-1)
-                printf("* ");
-            else printf("  ");
-        }
-        printf("\n");
-    }
+void patternD(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(j==0||((i==0||i==n-1)&&j<n-1)||(j==n-1&&i>0&&i<n-1));
 }
-
-void printE(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(j==0 || i==0 || i==n/2 || i==n-1)
-                printf("* ");
-            else printf("  ");
-        }
-        printf("\n");
-    }
+void patternE(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(j==0||i==0||i==n/2||i==n-1);
 }
-
-void printF(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(j==0 || i==0 || i==n/2)
-                printf("* ");
-            else printf("  ");
-        }
-        printf("\n");
-    }
+void patternF(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(j==0||i==0||i==n/2);
 }
-
-void printG(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(j==0 || i==0 && j>0 || i==n-1 && j>0 || j==n-1&&i>=n/2 || i==n/2&&j>=n/2)
-                printf("* ");
-            else printf("  ");
-        }
-        printf("\n");
-    }
+void patternG(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(j==0||(i==0&&j>0)||(i==n-1&&j>0)||(j==n-1&&i>=n/2)||(i==n/2&&j>=n/2));
 }
-
-void printH(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(j==0 || j==n-1 || i==n/2)
-                printf("* ");
-            else printf("  ");
-        }
-        printf("\n");
-    }
+void patternH(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(j==0||j==n-1||i==n/2);
 }
-
-void printI(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(i==0 || i==n-1 || j==n/2)
-                printf("* ");
-            else printf("  ");
-        }
-        printf("\n");
-    }
+void patternI(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(i==0||i==n-1||j==n/2);
 }
-
-void printJ(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(i==0 || j==n/2 || i==n-1 && j<n/2 || j==0 && i>=n/2)
-                printf("* ");
-            else printf("  ");
-        }
-        printf("\n");
-    }
+void patternJ(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(i==0||j==n/2||(i==n-1&&j<n/2)||(j==0&&i>=n/2));
 }
-
-void printK(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(j==0 || j==n-i-1 && i<=n/2 || j==i && i>=n/2)
-                printf("* ");
-            else printf("  ");
-        }
-        printf("\n");
-    }
+void patternK(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(j==0||j==n-i-1&&i<=n/2||j==i&&i>=n/2);
 }
-
-void printL(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(j==0 || i==n-1)
-                printf("* ");
-            else printf("  ");
-        }
-        printf("\n");
-    }
+void patternL(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(j==0||i==n-1);
 }
-
-void printM(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(j==0 || j==n-1 || (i==j && i<=n/2) || (i+j==n-1 && i<=n/2))
-                printf("* ");
-            else printf("  ");
-        }
-        printf("\n");
-    }
+void patternM(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(j==0||j==n-1||(i==j&&i<=n/2)||(i+j==n-1&&i<=n/2));
 }
-
-void printN(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(j==0 || j==n-1 || i==j)
-                printf("* ");
-            else printf("  ");
-        }
-        printf("\n");
-    }
+void patternN(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(j==0||j==n-1||i==j);
 }
-
-void printO(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(i==0||i==n-1||j==0||j==n-1)
-                printf("* ");
-            else printf("  ");
-        }
-        printf("\n");
-    }
+void patternO(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(i==0||i==n-1||j==0||j==n-1);
 }
-
-void printP(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(j==0 || i==0 && j<n-1 || i==n/2 && j<n-1 || j==n-1 && i<n/2 && i>0)
-                printf("* ");
-            else printf("  ");
-        }
-        printf("\n");
-    }
+void patternP(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(j==0||i==0&&j<n-1||i==n/2&&j<n-1||j==n-1&&i<n/2&&i>0);
 }
-
-void printQ(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(i==0||i==n-1||j==0||j==n-1||(i==j&&i>=n/2))
-                printf("* ");
-            else printf("  ");
-        }
-        printf("\n");
-    }
+void patternQ(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(i==0||i==n-1||j==0||j==n-1||(i==j&&i>=n/2));
 }
-
-void printR(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(j==0 || i==0&&j<n-1 || i==n/2&&j<n-1 || j==n-1&&i<n/2 && i>0 || i-j==n/2)
-                printf("* ");
-            else printf("  ");
-        }
-        printf("\n");
-    }
+void patternR(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(j==0||i==0&&j<n-1||i==n/2&&j<n-1||j==n-1&&i<n/2&&i>0||i-j==n/2);
 }
-
-void printS(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(i==0||i==n/2||i==n-1||j==0&&i<n/2||j==n-1&&i>n/2)
-                printf("* ");
-            else printf("  ");
-        }
-        printf("\n");
-    }
+void patternS(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(i==0||i==n/2||i==n-1||(j==0&&i<n/2)||(j==n-1&&i>n/2));
 }
-
-void printT(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(i==0 || j==n/2)
-                printf("* ");
-            else printf("  ");
-        }
-        printf("\n");
-    }
+void patternT(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(i==0||j==n/2);
 }
-
-void printU(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(j==0 || j==n-1 || i==n-1)
-                printf("* ");
-            else printf("  ");
-        }
-        printf("\n");
-    }
+void patternU(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(j==0||j==n-1||i==n-1);
 }
-
-void printV(int n) {
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n * 2 - 1; j++) {
-            if (j == i || j == (2 * n - 2 - i))
-                printf("*");
-            else 
-                printf(" ");
-        }
-        printf("\n");
-    }
+void patternV(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<2*n-1;j++)
+            arr[i][j]=(j==i||j==(2*n-2-i));
 }
-
-void printW(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(j==0||j==n-1||(i==j&&i>=n/2)||(i+j==n-1&&i>=n/2))
-                printf("* ");
-            else printf("  ");
-        }
-        printf("\n");
-    }
+void patternW(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(j==0||j==n-1||(i==j&&i>=n/2)||(i+j==n-1&&i>=n/2));
 }
-
-void printX(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(i==j||i+j==n-1)
-                printf("* ");
-            else printf("  ");
-        }
-        printf("\n");
-    }
+void patternX(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(i==j||i+j==n-1);
 }
-
-void printY(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if((i==j&&i<n/2)||(i+j==n-1&&i<n/2)||j==n/2&&i>=n/2)
-                printf("* ");
-            else printf("  ");
-        }
-        printf("\n");
-    }
+void patternY(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=((i==j&&i<n/2)||(i+j==n-1&&i<n/2)||(j==n/2&&i>=n/2));
 }
-
-void printZ(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(i==0||i==n-1||i+j==n-1)
-                printf("* ");
-            else printf("  ");
-        }
-        printf("\n");
-    }
+void patternZ(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(i==0||i==n-1||i+j==n-1);
 }
-
-// ---------------- DISPATCH FUNCTION ----------------
-
-void printLetter(char ch, int size) {
+// Numbers functions
+void pattern0(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(i==0||i==n-1||j==0||j==n-1||(i==j&&i>=n/2));
+}
+void pattern1(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(j==n/2||i==n-1||i==0&&j==n/2);
+}
+void pattern2(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(i==0||i==n-1||i==n/2||i<n/2&&j==n-1||i>n/2&&j==0);
+}
+void pattern3(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(i==0||i==n-1||i==n/2||j==n-1);
+}
+void pattern4(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(j==n-1||i==n/2||j==0&&i<n/2);
+}
+void pattern5(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(i==0||i==n-1||i==n/2||i<n/2&&j==0||i>n/2&&j==n-1);
+}
+void pattern6(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(i==0||i==n-1||i==n/2||j==0||i>n/2&&j==n-1);
+}
+void pattern7(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(i==0||j==n-1-i);
+}
+void pattern8(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(i==0||i==n-1||i==n/2||j==0||j==n-1);
+}
+void pattern9(int n, int arr[n][2*n]){
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=(i==0||i==n/2||i==n-1||j==n-1||i<n/2&&j==0);
+}
+// Function caller
+int getPattern(char ch, int n, int arr[n][2*n]){
+    memset(arr, 0, sizeof(int)*n*2*n);
     ch = toupper(ch);
-    switch (ch) {
+    switch(ch){
         case 'A': 
-            printA(size); 
-            break;
-        case 'B':
-            printB(size); 
-            break;
+            patternA(n, arr); 
+            return n;
+        case 'B': 
+            patternB(n, arr); 
+            return n;
         case 'C': 
-            printC(size); 
-            break;
+            patternC(n, arr); 
+            return n;
         case 'D': 
-            printD(size); 
-            break;
+            patternD(n, arr); 
+            return n;
         case 'E': 
-            printE(size); 
-            break;
+            patternE(n, arr); 
+            return n;
         case 'F': 
-            printF(size); 
-            break;
+            patternF(n, arr); 
+            return n;
         case 'G': 
-            printG(size); 
-            break;
+            patternG(n, arr); 
+            return n;
         case 'H': 
-            printH(size); 
-            break;
+            patternH(n, arr); 
+            return n;
         case 'I': 
-            printI(size); 
-            break;
+            patternI(n, arr); 
+            return n;
         case 'J': 
-            printJ(size); 
-            break;
+            patternJ(n, arr); 
+            return n;
         case 'K': 
-            printK(size); 
-            break;
-        case 'L':
-            printL(size); 
-            break;
-        case 'M':
-            printM(size); 
-            break;
+            patternK(n, arr); 
+            return n;
+        case 'L': 
+            patternL(n, arr); 
+            return n;
+        case 'M': 
+            patternM(n, arr); 
+            return n;
         case 'N': 
-            printN(size); 
-            break;
+            patternN(n, arr); 
+            return n;
         case 'O': 
-            printO(size); 
-            break;
+            patternO(n, arr); 
+            return n;
         case 'P': 
-            printP(size); 
-            break;
+            patternP(n, arr); 
+            return n;
         case 'Q': 
-            printQ(size); 
-            break;
+            patternQ(n, arr); 
+            return n;
         case 'R': 
-            printR(size); 
-            break;
+            patternR(n, arr); 
+            return n;
         case 'S': 
-            printS(size); 
-            break;
+            patternS(n, arr); 
+            return n;
         case 'T': 
-            printT(size); 
-            break;
+            patternT(n, arr); 
+            return n;
         case 'U': 
-            printU(size); 
-            break;
+            patternU(n, arr); 
+            return n;
         case 'V': 
-            printV(size); 
-            break;
+            patternV(n, arr); 
+            return 2*n-1;
         case 'W': 
-            printW(size); 
-            break;
+            patternW(n, arr); 
+            return n;
         case 'X': 
-            printX(size); 
-            break;
+            patternX(n, arr); 
+            return n;
         case 'Y': 
-            printY(size); 
-            break;
+            patternY(n, arr); 
+            return n;
         case 'Z': 
-            printZ(size); 
-            break;
+            patternZ(n, arr); 
+            return n;
+
+        case '0': 
+            pattern0(n, arr); 
+            return n;
+        case '1': 
+            pattern1(n, arr); 
+            return n;
+        case '2': 
+            pattern2(n, arr); 
+            return n;
+        case '3': 
+            pattern3(n, arr); 
+            return n;
+        case '4': 
+            pattern4(n, arr); 
+            return n;
+        case '5': 
+            pattern5(n, arr); 
+            return n;
+        case '6': 
+            pattern6(n, arr); 
+            return n;
+        case '7': 
+            pattern7(n, arr); 
+            return n;
+        case '8': 
+            pattern8(n, arr); 
+            return n;
+        case '9': 
+            pattern9(n, arr); 
+            return n;
         default: 
-            printf("Character %c not supported.\n", ch);
+            return 0;
     }
 }
 
-// ---------------- MAIN PROGRAM ----------------
-
+// MAIN PROGRAM
 int main(){
-    char text[100];
-    char dir;
-    int size;
+    char again;
+    do {
+        char text[100], dir;
+        int size;
+        getchar(); // to clear leftover input buffer
+        printf("Enter any word or line or letter (A-Z, 0-9): ");
+        fgets(text, sizeof(text), stdin);
+        text[strcspn(text, "\n")] = '\0';
 
-    printf("Enter your text: ");
-    fgets(text, sizeof(text), stdin);
-    text[strcspn(text, "\n")] = '\0';
+        printf("Enter size of pattern to be printed (recommended 5-7): ");
+        scanf("%d", &size);
+        printf("Which MODE (H for Horizontally or V for Vertically [H/V]): ");
+        scanf(" %c", &dir);
 
-    printf("Enter size of pattern (recommended 5-7): ");
-    scanf("%d", &size);
-
-    printf("Print Horizontally or Vertically (H/V): ");
-    scanf(" %c", &dir);
-
-    if(toupper(dir) == 'V') {
-        for(int i=0; text[i]!='\0'; i++) {
-            if(text[i] == ' ') continue;
-            printLetter(text[i], size);
-            printf("\n");
+        if(toupper(dir)=='V'){
+            for(int i=0;text[i];i++){
+                if(text[i]==' ') continue;
+                int arr[size][2*size];
+                int width=getPattern(text[i], size, arr);
+                if(!width) continue;
+                for(int r=0;r<size;r++){
+                    for(int c=0;c<width;c++)
+                        printf("%c", arr[r][c]?'*':' ');
+                    printf("\n");
+                }
+                printf("\n");
+            }
+        } else {
+            int len=strlen(text);
+            int widths[len];
+            int patterns[len][size][2*size];
+            for(int i=0;i<len;i++){
+                if(text[i]==' '){
+                    widths[i]=2;
+                    memset(patterns[i],0,sizeof(patterns[i]));
+                    continue;
+                }
+                widths[i]=getPattern(text[i], size, patterns[i]);
+            }
+            for(int r=0;r<size;r++){
+                for(int i=0;i<len;i++){
+                    if(text[i]==' '){ printf("   "); continue; }
+                    for(int c=0;c<widths[i];c++)
+                        printf("%c", patterns[i][r][c]?'*':' ');
+                    printf("   ");
+                }
+                printf("\n");
+            }
         }
-    } else {
-        for(int i=0; text[i]!='\0'; i++) {
-            if(text[i] == ' ') continue;
-            printLetter(text[i], size);
-            printf("\n");
-        }
-    }
 
+        printf("\nDo you want to print another pattern? (Y/N): ");
+        scanf(" %c", &again);
+
+    } while(toupper(again) == 'Y');
+    printf("\nTHANK YOU!!\n");
     return 0;
 }
+// PROGRAM END
