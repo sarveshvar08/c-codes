@@ -309,7 +309,6 @@ int main(){
     do {
         char text[100], dir;
         int size;
-        getchar(); // to clear leftover input buffer
         printf("Enter any word or line or letter (A-Z, 0-9): ");
         fgets(text, sizeof(text), stdin);
         text[strcspn(text, "\n")] = '\0';
@@ -357,6 +356,7 @@ int main(){
 
         printf("\nDo you want to print another pattern? (Y/N): ");
         scanf(" %c", &again);
+        getchar(); 
 
     } while(toupper(again) == 'Y');
     printf("\nTHANK YOU!!\n");
