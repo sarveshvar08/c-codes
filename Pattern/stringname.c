@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdlib.h>
 // Alphabets functions
 void patternA(int n, int arr[n][2*n]) {
     for(int i=0;i<n;i++)
@@ -317,7 +318,8 @@ int main(){
         scanf("%d", &size);
         printf("Which MODE (H for Horizontally or V for Vertically [H/V]): ");
         scanf(" %c", &dir);
-
+        system("cls");
+        system("color 74");
         if(toupper(dir)=='V'){
             for(int i=0;text[i];i++){
                 if(text[i]==' ') continue;
@@ -356,7 +358,9 @@ int main(){
 
         printf("\nDo you want to print another pattern? (1 for YES/0 for NO): ");
         scanf(" %d", &a);
-        getchar(); 
+        getchar();
+        system("color 07");
+        system("cls"); 
 
     } while(a == 1);
     printf("\nTHANK YOU!!\n");
