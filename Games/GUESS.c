@@ -9,7 +9,7 @@ int main(){
     int ans=(rand()%(max-min+1))+min;
     printf("Number Guessing Game\n");
     do{
-        printf("Enter your guess between %d and %d: ",min,max);
+        printf("Enter your guess between %d and %d: ",min+1,max+1);
         scanf("%d",&guess);
         tries++;
         if(guess>ans){
