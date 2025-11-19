@@ -1,0 +1,1 @@
+SetConsoleTextAttribute(hConsole, 12);

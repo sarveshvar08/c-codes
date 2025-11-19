@@ -3,6 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include <windows.h>
 // Alphabets functions
 void patternA(int n, int arr[n][2*n]) {
     for(int i=0;i<n;i++)
@@ -319,7 +320,7 @@ int main(){
         printf("Which MODE (H for Horizontally or V for Vertically [H/V]): ");
         scanf(" %c", &dir);
         system("cls");
-        system("color 74");
+        system("color 71");
         if(toupper(dir)=='V'){
             for(int i=0;text[i];i++){
                 if(text[i]==' ') continue;
@@ -331,6 +332,7 @@ int main(){
                         printf("%c", arr[r][c]?'*':' ');
                     printf("\n");
                 }
+                Sleep(500);
                 printf("\n");
             }
         } else {
@@ -351,7 +353,9 @@ int main(){
                     for(int c=0;c<widths[i];c++)
                         printf("%c", patterns[i][r][c]?'*':' ');
                     printf("   ");
+                    Sleep(100);
                 }
+                
                 printf("\n");
             }
         }
